@@ -5,8 +5,12 @@ public class Main {
 
     static int getTemp() {
         System.out.println("Please enter input within 5 seconds");
+        int input = -50;
         Scanner scan = new Scanner(System.in);
-        int input= scan.nextInt();
+        if(scan.hasNextInt()){
+            input= scan.nextInt();}
+        else{
+            System.out.println("This is not a valid temperature");}
         return input;
     }
 
@@ -28,7 +32,6 @@ public class Main {
     static  boolean selfCheck() {
         if(battery>0){
             int temp= getTemp();
-            checkTemp(temp);
             //if temp is not within range,restart program
             if(!checkTemp(temp)){
                 selfCheck();
